@@ -1,0 +1,24 @@
+import geocoder
+from colorama import Fore
+import webbrowser
+import time
+import subprocess
+
+subprocess.call("clear", shell=True)
+print(Fore.YELLOW + """
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+░░░░█▀▀▀░█▀▀▀░░█▀▀░▀▀█░░█░░░░
+░░░░█░▀█░█░▀█░░█▀▀░▄▀░░░▀░░░░
+░░░░▀▀▀▀░▀▀▀▀░░▀▀▀░▀▀▀░░▀░░░░
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+""")
+ip = input(Fore.RED + "(indirizzo IPv4)" + Fore.GREEN + "--> ")
+g = geocoder.ip(ip)
+r = g.latlng
+print("\n")
+print(str(r) + Fore.YELLOW + " <-- coordinate")
+
+print(Fore.GREEN + "\nhttps://www.google.it/maps/@" + str(r) + Fore.YELLOW + "<--- link"
+print("----------")
+print("\n")
+webbrowser.open("https://www.google.it/maps/@" + str(r))
